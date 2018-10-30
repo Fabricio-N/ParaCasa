@@ -14,36 +14,36 @@ import biblioteca.models.Aluno;
 @Controller
 public class AlunosController {
 
-	@RequestMapping("/bibliotecas/form")
+	@RequestMapping("/alunos/form")
 	public String form() {
 		System.out.println("Chamou o meu método");
-		return "bibliotecas/form";
+		return "alunos/formAluno";
 	}
 
-	@PostMapping("/bibliotecas")
+	@PostMapping("/alunos")
 	public String adicionar(Aluno aluno) {
 		System.out.println("Chamou o método de adicionar");
 		AlunoDAO alunoDao = new AlunoDAO();
 		alunoDao.inserir(aluno);
-		return "redirect:bibliotecas";
+		return "redirect:alunos";
 	}
 
-	@GetMapping("/bibliotecas")
+	@GetMapping("/alunos")
 	public ModelAndView listar() {
 		System.out.println("Chamou o metódo de listagem");
 		AlunoDAO alunoDao = new AlunoDAO();
 		List<Aluno> lista = alunoDao.getLista();
-		ModelAndView model = new ModelAndView("bibliotecas/lista");
-		model.addObject("bibliotecas", lista);
+		ModelAndView model = new ModelAndView("alunos/listaAluno");
+		model.addObject("alunos", lista);
 		return model;
 	}
 
-	@RequestMapping("/bibliotecas/remover")
+	@RequestMapping("/alunos/remover")
 	public String remover(Aluno aluno) {
 		System.out.println("Chamou o método remover");
 		AlunoDAO alunoDao = new AlunoDAO();
 		alunoDao.remover(aluno);
-		return "redirect:../bibliotecas";
+		return "redirect:../alunos";
 
 	}
 
