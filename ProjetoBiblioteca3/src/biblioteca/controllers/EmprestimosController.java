@@ -29,7 +29,7 @@ public class EmprestimosController {
 		return "emprestimos/listaEmprestimo";
 	}
 
-	/*@GetMapping("/emprestimos")
+	@GetMapping("/emprestimos")
 	public ModelAndView listar() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
@@ -39,7 +39,7 @@ public class EmprestimosController {
 		return model;
 	}
 
-	@GetMapping("/emprestimos")
+	/*@GetMapping("/emprestimos")
 	public ModelAndView listarAbertos() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
