@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import biblioteca.dao.AlunoDAO;
 import biblioteca.dao.EmprestimoDAO;
 import biblioteca.models.Aluno;
 import biblioteca.models.Emprestimo;
@@ -18,7 +19,10 @@ public class EmprestimosController {
 	@RequestMapping("/emprestimos/form")
 	public String form() {
 		System.out.println("Chamou o meu método");
+		AlunoDAO alunoDao = new AlunoDAO();
+		List<Aluno> lista = alunoDao.getLista();
 		return "emprestimos/formEmprestimo";
+		
 	}
 
 	@PostMapping("/emprestimos")

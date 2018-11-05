@@ -8,20 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="../menu.jsp"></c:import>
+	<c:import url="../menu.jsp"></c:import>
 	<h1>Adicionar Emprestimo</h1>
-	<form action="/ProjetoBiblioteca3/emprestimos" method="post">
-		
-		Nome do aluno: <input type="text" name="aluno">
-		
-		Nome do Livro: <input type="text" name="livro">
-		
-		Data do emprestimo: <input type="text" name="dataEmprestimo">
-		
-		Data da devolução: <input type="text" name="dataDevolucao">
-		
-		<button type="submit">Adicionar</button>
-		
-	</form>
+
+
+	<select name="aluno.id">
+		<c:forEach var="aluno" items="${alunos }">
+			<option value="${aluno.id }">${aluno.nome }</option>
+		</c:forEach>
+	</select>
+
+	<button type="submit">Adicionar</button>
+
+
 </body>
 </html>
