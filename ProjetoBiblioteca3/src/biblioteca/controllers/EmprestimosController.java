@@ -20,24 +20,21 @@ import biblioteca.models.Livro;
 @Controller
 public class EmprestimosController {
 	@RequestMapping("/emprestimos/form")
-	public String form() {
+	public ModelAndView form() {
 		System.out.println("Chamou o meu método");
 		AlunoDAO alunoDao = new AlunoDAO();
 		List<Aluno> listaA = alunoDao.getLista();
-		
+
 		LivroDAO livroDao = new LivroDAO();
 		List<Livro> listaL = livroDao.getLista();
-		
-		ModelAndView modelA = new ModelAndView("alunos/listaAluno");
-		ModelAndView modelL = new ModelAndView("livros/listaLivro");
-		
-		modelA.addObject("alunos", listaA);
-		modelL.addObject("livros", listaL);
-		
-		
-		return "emprestimos/formEmprestimo";
-	
-		
+
+		ModelAndView model = new ModelAndView("emprestimos/formEmprestimo");
+
+		model.addObject("alunos", listaA);
+		model.addObject("livros", listaL);
+
+		return model;
+
 	}
 
 	@PostMapping("/emprestimos")
@@ -45,8 +42,8 @@ public class EmprestimosController {
 		System.out.println("Chamou o método de adicionar");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 		emprestimoDAO.inserir(emprestimo);
-		
-		return "emprestimos/listaEmprestimo";
+
+		return "redirect:/emprestimos";
 	}
 
 	@GetMapping("/emprestimos")
@@ -59,7 +56,7 @@ public class EmprestimosController {
 		return model;
 	}
 
-	/*@GetMapping("/emprestimos")
+	@GetMapping("/emprestimos/abertos")
 	public ModelAndView listarAbertos() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
@@ -69,8 +66,8 @@ public class EmprestimosController {
 		return model;
 	}
 
-	@GetMapping("/emprestimos")
-	public ModelAndView listarAtrasados() {
+	@GetMapping("/emprestimos/atrasados")
+	public ModelAndView listarAtrasado() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 		List<Emprestimo> lista = emprestimoDao.getListaAtraso();
@@ -79,23 +76,28 @@ public class EmprestimosController {
 		return model;
 	}
 
-	@GetMapping("/emprestimos")
-	public String qtdeEmprestimos(Aluno aluno) {
-		System.out.println("Chamou o metódo de quantidade");
+	@RequestMapping("/emprestimos/devolucao")
+	public String devolucao(long aluno, long livro) {
+		System.out.println("Chamou o método devolução");
+		
+		Aluno alunoo = new Aluno();
+		Livro livroo = new Livro();
+		Emprestimo emprestimo = new Emprestimo();
+		
+		AlunoDAO alunoDao = new AlunoDAO();
+		LivroDAO livroDao = new LivroDAO();
 		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-		try {
-			emprestimoDao.qtdEmprestimos(aluno);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "qtdEmprestimos";
+		
+		alunoo = alunoDao.getAlunoByID(aluno);
+		livroo = livroDao.getLivroByID(livro);
+		
+		emprestimo.setAluno(alunoo);
+		emprestimo.setLivro(livroo);
+		
+		emprestimoDao.devolucao(aluno, livro);
+		
+		return "redirect:/emprestimos";
+		
+		
 	}
-
-/*
- * @PostMapping("/emprestimos") public String devolucao() {
- * System.out.println("Chamou o método de adicionar"); EmprestimoDAO
- * emprestimoDAO = new EmprestimoDAO(); emprestimoDAO.devolucao(aluno, livro);
- * return "redirect:emprestimos"; }
- */
 }

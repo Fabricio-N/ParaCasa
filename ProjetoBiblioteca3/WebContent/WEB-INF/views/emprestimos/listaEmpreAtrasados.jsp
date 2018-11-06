@@ -8,32 +8,31 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../menu.jsp"></c:import>
+	
+	<h1>Empretimos em Atraso</h1>
 
-<c:import url="../menu.jsp"></c:import>
-
-	<h1>Lista de Emprestimos:</h1>
 
 	<table border="2">
+
 		<thead>
 			<tr>
-				<th>Nome do aluno</th>
-				<th>Nome do Livro</th>
+				<th>Aluno</th>
+				<th>Livro</th>
 				<th>Data de empréstimo</th>
 			</tr>
+
 		</thead>
+
 		<tbody>
-			<c:forEach var="emprestimo" items="${emprestimos }">
+			<c:forEach var="emprestimo" items="${emprestimos}">
 				<tr>
 					<td>${emprestimo.aluno.nome }</td>
 					<td>${emprestimo.livro.titulo }</td>
 					<td>${emprestimo.dataEmprestimo.time }</td>
-					<td>${emprestimo.dataDevolucao.time }</td>
 				</tr>
 			</c:forEach>
-
 		</tbody>
-
 	</table>
-
 </body>
 </html>

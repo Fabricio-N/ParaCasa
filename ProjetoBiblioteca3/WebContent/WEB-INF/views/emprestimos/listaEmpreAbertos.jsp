@@ -8,31 +8,30 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="../menu.jsp"></c:import>
 
-<c:import url="../menu.jsp"></c:import>
+	<h1>Emprestimos Abertos:</h1>
 
-	<h1>Lista de Emprestimos:</h1>
-
-	<table border="2">
+	<table border="10">
 		<thead>
 			<tr>
-				<th>Nome do aluno</th>
-				<th>Nome do Livro</th>
-				<th>Data de empréstimo</th>
+				<th>Livro</th>
+				<th>Matrícula</th>
+				<th>Data do emprestimo</th>
+				<th>Devolução</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="emprestimo" items="${emprestimos }">
+			<c:forEach var="emprestimo" items="${emprestimos}">
+
 				<tr>
-					<td>${emprestimo.aluno.nome }</td>
-					<td>${emprestimo.livro.titulo }</td>
+					<td>${emprestimo.livro.titulo}</td>
+					<td>${emprestimo.aluno.matricula}</td>
 					<td>${emprestimo.dataEmprestimo.time }</td>
-					<td>${emprestimo.dataDevolucao.time }</td>
+					<td><a href="/ProjetoBiblioteca3/emprestimos/devolucao?id=${emprestimo.aluno.id}&livro=${emprestimo.livro.id}">devolver</a></td>
 				</tr>
 			</c:forEach>
-
 		</tbody>
-
 	</table>
 
 </body>

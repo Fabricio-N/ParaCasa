@@ -10,23 +10,23 @@
 <body>
 	<c:import url="../menu.jsp"></c:import>
 	<h1>Adicionar Emprestimo</h1>
+	<form action="/ProjetoBiblioteca3/emprestimos" method="post">
+		<h2>
+			Alunos <select name="aluno.id">
+				<c:forEach var="aluno" items="${alunos }">
+					<option value="${aluno.id }">${aluno.nome }</option>
+				</c:forEach>
+			</select>
+		</h2>
 
-	<h2>
-		Alunos <select name="aluno.id">
-			<c:forEach var="aluno" items="${alunos }">
-				<option value="${aluno.id }">${aluno.nome }</option>
-			</c:forEach>
-		</select>
-	</h2>
-
-	<h2>
-		Livros <select name="livro.id">
-			<c:forEach var="livro" items="${livros }">
-				<option value="${livro.id }">${livro.titulo }</option>
-			</c:forEach>
-		</select>
-	</h2>
-	<button type="submit">Adicionar</button>
-
+		<h2>
+			Livros <select name="livro.id">
+				<c:forEach var="livro" items="${livros }">
+					<option value="${livro.id }">${livro.titulo }</option>
+				</c:forEach>
+			</select>
+		</h2>
+		<button type="submit">Adicionar</button>
+	</form>
 </body>
 </html>

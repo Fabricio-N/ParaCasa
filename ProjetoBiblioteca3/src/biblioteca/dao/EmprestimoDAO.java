@@ -22,7 +22,7 @@ public class EmprestimoDAO {
 
 	public boolean inserir(Emprestimo emprestimo) {
 
-		String query = "insert into emprestimos (aluno, livro, dataEmprestimo, dataDevolucao) values (?, ?, ?, ?);";
+		String query = "insert into emprestimos (aluno, livro, dataEmprestimo) values (?, ?, ?);";
 
 		try {
 			PreparedStatement p = connection.prepareStatement(query);
@@ -33,7 +33,6 @@ public class EmprestimoDAO {
 			p.setLong(1, emprestimo.getAluno().getId());
 			p.setLong(2, emprestimo.getLivro().getId());
 			p.setDate(3, new java.sql.Date(calendarioEF));
-			p.setDate(4, new java.sql.Date(calendarioEF));
 
 			p.execute();
 			p.close();
@@ -136,7 +135,7 @@ public class EmprestimoDAO {
 		try {
 
 			List<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
-			PreparedStatement stmt = connection.prepareStatement("select * from emprestimos");
+			PreparedStatement stmt = connection.prepareStatement("select * from emprestimos;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -203,7 +202,6 @@ public class EmprestimoDAO {
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataDevolucao"));
 				emprestimo.setDataEmprestimo(data);
-
 			}
 			rs.close();
 			stmt.close();

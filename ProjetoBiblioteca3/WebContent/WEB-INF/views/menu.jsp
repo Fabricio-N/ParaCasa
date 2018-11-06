@@ -6,4 +6,6 @@
 	<li><a href="/ProjetoBiblioteca3/livros">Listar Livros</a></li>
 	<li><a href="/ProjetoBiblioteca3/emprestimos/form">Adicionar Emprestimo</a></li>
 	<li><a href="/ProjetoBiblioteca3/emprestimos">Listar Emprestimo</a></li>
+	<li><a href="/ProjetoBiblioteca3/emprestimos/abertos">Emprestimos Abertos</a></li>
+	<li><a href="/ProjetoBiblioteca3/emprestimos/atrasados">Emprestimos Atrasados</a></li>
 </ul>
