@@ -2,6 +2,7 @@ package biblioteca.controllers;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import biblioteca.dao.AlunoDAO;
 import biblioteca.dao.EmprestimoDAO;
+import biblioteca.dao.LivroDAO;
 import biblioteca.models.Aluno;
 import biblioteca.models.Emprestimo;
+import biblioteca.models.Livro;
 
 @Controller
 public class EmprestimosController {
@@ -20,8 +23,20 @@ public class EmprestimosController {
 	public String form() {
 		System.out.println("Chamou o meu método");
 		AlunoDAO alunoDao = new AlunoDAO();
-		List<Aluno> lista = alunoDao.getLista();
+		List<Aluno> listaA = alunoDao.getLista();
+		
+		LivroDAO livroDao = new LivroDAO();
+		List<Livro> listaL = livroDao.getLista();
+		
+		ModelAndView modelA = new ModelAndView("alunos/listaAluno");
+		ModelAndView modelL = new ModelAndView("livros/listaLivro");
+		
+		modelA.addObject("alunos", listaA);
+		modelL.addObject("livros", listaL);
+		
+		
 		return "emprestimos/formEmprestimo";
+	
 		
 	}
 
@@ -30,6 +45,7 @@ public class EmprestimosController {
 		System.out.println("Chamou o método de adicionar");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
 		emprestimoDAO.inserir(emprestimo);
+		
 		return "emprestimos/listaEmprestimo";
 	}
 
