@@ -12,7 +12,7 @@
 
 	<h1>Emprestimos Abertos:</h1>
 
-	<table border="10">
+	<table border="2">
 		<thead>
 			<tr>
 				<th>Livro</th>
@@ -28,7 +28,8 @@
 					<td>${emprestimo.livro.titulo}</td>
 					<td>${emprestimo.aluno.matricula}</td>
 					<td>${emprestimo.dataEmprestimo.time }</td>
-					<td><a href="/ProjetoBiblioteca3/emprestimos/devolucao?id=${emprestimo.aluno.id}&livro=${emprestimo.livro.id}">devolver</a></td>
+					<td><a
+						href="/ProjetoBiblioteca3/emprestimos/devolucao?id=${emprestimo.aluno.id}&livro=${emprestimo.livro.id}">devolver</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

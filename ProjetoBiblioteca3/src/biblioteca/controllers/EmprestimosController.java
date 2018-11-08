@@ -75,29 +75,12 @@ public class EmprestimosController {
 		model.addObject("emprestimos", lista);
 		return model;
 	}
+		@RequestMapping("/emprestimos/devolucao")
+		public String remover(long aluno, long livro) {
+			System.out.println("Chamou o método devolução");
+			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
+			emprestimoDao.devolucao(aluno, livro);
+			return "redirect:../emprestimo";
 
-	@RequestMapping("/emprestimos/devolucao")
-	public String devolucao(long aluno, long livro) {
-		System.out.println("Chamou o método devolução");
-		
-		Aluno alunoo = new Aluno();
-		Livro livroo = new Livro();
-		Emprestimo emprestimo = new Emprestimo();
-		
-		AlunoDAO alunoDao = new AlunoDAO();
-		LivroDAO livroDao = new LivroDAO();
-		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-		
-		alunoo = alunoDao.getAlunoByID(aluno);
-		livroo = livroDao.getLivroByID(livro);
-		
-		emprestimo.setAluno(alunoo);
-		emprestimo.setLivro(livroo);
-		
-		emprestimoDao.devolucao(aluno, livro);
-		
-		return "redirect:/emprestimos";
-		
-		
-	}
+		}
 }
