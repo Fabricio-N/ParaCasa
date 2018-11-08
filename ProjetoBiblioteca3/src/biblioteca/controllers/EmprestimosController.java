@@ -76,7 +76,7 @@ public class EmprestimosController {
 		return model;
 	}
 		@RequestMapping("/emprestimos/devolucao")
-		public String remover(long aluno, long livro) {
+		public String devolucao(long aluno, long livro) {
 			System.out.println("Chamou o método devolução");
 			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
 			emprestimoDao.devolucao(aluno, livro);
@@ -84,3 +84,4 @@ public class EmprestimosController {
 
 		}
 }
+
