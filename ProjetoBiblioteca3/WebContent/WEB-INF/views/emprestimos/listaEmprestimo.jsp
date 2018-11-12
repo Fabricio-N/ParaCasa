@@ -6,6 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<style>
+tr {
+	color: black;
+	background-color: white;
+}
+
+h1 {
+	color: black;
+	background-color: white;
+	text-align: center;
+}
+</style>
 </head>
 <body>
 
@@ -13,7 +26,7 @@
 
 	<h1>Lista de Emprestimos:</h1>
 
-	<table border="2">
+	<table border="10" align="center">
 		<thead>
 			<tr>
 				<th>Nome do aluno</th>
@@ -27,7 +40,6 @@
 					<td>${emprestimo.aluno.nome }</td>
 					<td>${emprestimo.livro.titulo }</td>
 					<td>${emprestimo.dataEmprestimo.time }</td>
-					<td>${emprestimo.dataDevolucao.time }</td>
 				</tr>
 			</c:forEach>
 

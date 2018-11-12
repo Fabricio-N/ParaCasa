@@ -7,13 +7,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+
+<style>
+tr {
+	color: black;
+	background-color: white;
+}
+
+h1 {
+ 	color: black;
+ 	background-color: white;
+ 	text-align: center;
+}
+</style>
 </head>
 <body>
 	<c:import url="../menu.jsp"></c:import>
 
 	<h1>Lista de alunos:</h1>
 
-	<table border="2">
+	<table border="10" align="center">
 		<thead>
 			<tr>
 				<th>Nome</th>
@@ -31,7 +45,8 @@
 					<td>${aluno.cpf }</td>
 					<td>${aluno.endereco }</td>
 					<td>${aluno.dataNascimento.time }</td>
-					<td><a href="/ProjetoBiblioteca3/alunos/remover?id=${aluno.id}">Remover</a></td>
+					<td><a
+						href="/ProjetoBiblioteca3/alunos/remover?id=${aluno.id}">Remover</a></td>
 				</tr>
 			</c:forEach>
 

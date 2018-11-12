@@ -7,21 +7,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
+<style>
+label {
+	color: DeepPink;
+}
+form {
+	text-align: center;
+}
+h1 {
+	text-shadow: 0 0 0.5em #00FFFF;
+	text-align: center;
+	color: white;
+	
+}
+</style>
 <body>
 	<c:import url="../menu.jsp"></c:import>
 	<h1>Adicionar Aluno</h1>
 	<form action="/ProjetoBiblioteca3/alunos" method="post">
-		Nome: <input type="text" name="nome">
+	<div>
+		<label>
+			Nome: <input type="text" name="nome">
 		
-		Matricula: <input type="text" name="matricula">
+			Matricula: <input type="text" name="matricula">
 		
-		CPF: <input type="text" name="cpf">
+			CPF: <input type="text" name="cpf">
 		
-		Endereço: <input type="text" name="endereco">
+			Endereço: <input type="text" name="endereco">
 		
-		Data de Nascimento: <input type="text" name="dataNascimento">
-		<button type="submit">Adicionar</button>
-		
+			Data de Nascimento: <input type="text" name="dataNascimento">
+			<button type="submit">Adicionar</button>
+		</label>
+	</div>	
 	</form>
 </body>
 </html>

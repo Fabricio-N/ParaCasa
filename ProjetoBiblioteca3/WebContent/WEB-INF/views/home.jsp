@@ -7,8 +7,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
+<style>
+
+h1 {
+	text-shadow: 0 0 0.5em #00FFFF;
+	text-align: center;
+	color: white;
+ }
+
+div {
+    width: 500px;
+    height: 50px;
+    background-color: #20B2AA;
+    font-weight: bold;
+    position: relative;
+    -webkit-animation: mymove 8s infinite;
+    animation: mymove 8s infinite;
+    color: white;
+   text-align: center;
+   font-size: 50px;
+}
+#div1 {-webkit-animation-timing-function: Bem Vindo;}
+
+@-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 800px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 800px;}
+}
+
+</style>
 <body>
 	<c:import url="menu.jsp"></c:import>
-	<h1>Minha aplicação deu CERTO! #EleNão</h1>
+	<h1>Biblioteca Fabricio e Emanuelly</h1>
+	<div id="div1">Bem Vindo</div>
 </body>
 </html>

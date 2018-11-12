@@ -7,6 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
+<style>
+form {
+	text-align: center;
+}
+
+h1 {
+	text-shadow: 0 0 0.5em #00FFFF;
+	text-align: center;
+	color: white;
+}
+
+h2 {
+	color: DeepPink;
+}
+</style>
 <body>
 	<c:import url="../menu.jsp"></c:import>
 	<h1>Adicionar Emprestimo</h1>
