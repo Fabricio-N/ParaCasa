@@ -23,13 +23,12 @@
 		</thead>
 		<tbody>
 			<c:forEach var="emprestimo" items="${emprestimos}">
-
 				<tr>
 					<td>${emprestimo.livro.titulo}</td>
 					<td>${emprestimo.aluno.matricula}</td>
 					<td>${emprestimo.dataEmprestimo.time }</td>
 					<td><a
-						href="/ProjetoBiblioteca3/emprestimos/devolucao?id=${emprestimo.aluno.id}&livro=${emprestimo.livro.id}">devolver</a></td>
+						href="/ProjetoBiblioteca3/emprestimos/devolucao?id=${emprestimo.id}">devolver</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

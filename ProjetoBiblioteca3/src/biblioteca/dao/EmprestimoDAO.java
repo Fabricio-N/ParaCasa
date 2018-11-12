@@ -79,6 +79,8 @@ public class EmprestimoDAO {
 
 			while (rs.next()) {
 				Emprestimo emprestimo = new Emprestimo();
+				
+				emprestimo.setId(rs.getLong("id"));
 				Livro livro = new LivroDAO().getLivroByID(rs.getLong("livro"));
 				Aluno aluno = new AlunoDAO().getAlunoByID(rs.getLong("aluno"));
 
@@ -140,7 +142,8 @@ public class EmprestimoDAO {
 
 			while (rs.next()) {
 				Emprestimo emprestimo = new Emprestimo();
-
+				
+				emprestimo.setId(rs.getLong("id"));
 				Aluno aluno = new AlunoDAO().getAlunoByID(rs.getLong("aluno"));
 				emprestimo.setAluno(aluno);
 				Livro livro = new LivroDAO().getLivroByID(rs.getLong("livro"));
@@ -166,15 +169,12 @@ public class EmprestimoDAO {
 
 	}
 
-	public boolean devolucao(long aluno, long livro) {
-		Calendar cal = Calendar.getInstance();
-		Long cal1 = cal.getTimeInMillis();
-		String sql = "update emprestimos set dataDevolucao=? where aluno=? and livro=?;";
+	public boolean devolucao(Emprestimo emprestimo) {
+		String sql = "update emprestimos set dataDevolucao=? where id=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setDate(1, new java.sql.Date(cal1));
-			stmt.setLong(2, aluno);
-			stmt.setLong(3, livro);
+			stmt.setDate(1, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+			stmt.setLong(2, emprestimo.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

@@ -49,4 +49,12 @@ public class Emprestimo {
 		this.livro = livro;
 	}
 
+	@Override
+	public String toString() {
+		return "Emprestimo [id=" + id + ", aluno=" + aluno + ", livro=" + livro + ", dataEmprestimo=" + dataEmprestimo
+				+ ", dataDevolucao=" + dataDevolucao + "]";
+	}
+	
+	
+
 }

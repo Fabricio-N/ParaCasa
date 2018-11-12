@@ -76,11 +76,12 @@ public class EmprestimosController {
 		return model;
 	}
 		@RequestMapping("/emprestimos/devolucao")
-		public String devolucao(long aluno, long livro) {
+		public String devolucao(Emprestimo emprestimo) {
 			System.out.println("Chamou o método devolução");
 			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-			emprestimoDao.devolucao(aluno, livro);
-			return "redirect:../emprestimo";
+			System.out.println(emprestimo);
+			emprestimoDao.devolucao(emprestimo);
+			return "redirect:../emprestimos/abertos";
 
 		}
 }
