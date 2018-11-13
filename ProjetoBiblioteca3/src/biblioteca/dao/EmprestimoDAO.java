@@ -1,7 +1,6 @@
 package biblioteca.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,25 +77,7 @@ public class EmprestimoDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				Emprestimo emprestimo = new Emprestimo();
-				
-				emprestimo.setId(rs.getLong("id"));
-				Livro livro = new LivroDAO().getLivroByID(rs.getLong("livro"));
-				Aluno aluno = new AlunoDAO().getAlunoByID(rs.getLong("aluno"));
-
-				emprestimo.setLivro(livro);
-				emprestimo.setAluno(aluno);
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataEmprestimo"));
-				emprestimo.setDataEmprestimo(data);
-
-				if (rs.getDate("dataDevolucao") != null) {
-					Calendar dataDevolucao = Calendar.getInstance();
-					dataDevolucao.setTime(rs.getDate("dataDevolucao"));
-					emprestimo.setDataDevolucao(dataDevolucao);
-				}
-
-				emprestimos.add(emprestimo);
+				emprestimos.add(montarEmprestimo(rs));
 			}
 
 			stmt.close();
@@ -113,18 +94,12 @@ public class EmprestimoDAO {
 			List<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 			PreparedStatement stmt = connection
 					.prepareStatement("select * from emprestimos where dataDevolucao is null and dataEmprestimo < ?;");
-			Emprestimo emprestimo = new Emprestimo();
-
-			Calendar dataEmprestimo = Calendar.getInstance();
-			emprestimo.setDataEmprestimo(dataEmprestimo);
-
-			dataEmprestimo.add(Calendar.DAY_OF_YEAR, -14);
-
-			stmt.setDate(1, new Date(dataEmprestimo.getTimeInMillis()));
-
+			stmt.setDate(1, x);
 			ResultSet rs = stmt.executeQuery();
 
-			rs.close();
+			while (rs.next()) {
+				emprestimos.add(montarEmprestimo(rs));
+			}
 			stmt.close();
 			return emprestimos;
 		} catch (SQLException e) {
@@ -141,24 +116,7 @@ public class EmprestimoDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				Emprestimo emprestimo = new Emprestimo();
-				
-				emprestimo.setId(rs.getLong("id"));
-				Aluno aluno = new AlunoDAO().getAlunoByID(rs.getLong("aluno"));
-				emprestimo.setAluno(aluno);
-				Livro livro = new LivroDAO().getLivroByID(rs.getLong("livro"));
-				emprestimo.setLivro(livro);
-
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataEmprestimo"));
-				emprestimo.setDataEmprestimo(data);
-
-				if (rs.getDate("dataDevolucao") != null) {
-					Calendar data2 = Calendar.getInstance();
-					data2.setTime(rs.getDate("dataDevolucao"));
-					emprestimo.setDataDevolucao(data2);
-				}
-				emprestimos.add(emprestimo);
+				emprestimos.add(montarEmprestimo(rs));
 			}
 			rs.close();
 			stmt.close();
@@ -167,6 +125,28 @@ public class EmprestimoDAO {
 			throw new RuntimeException(e);
 		}
 
+	}
+
+	private Emprestimo montarEmprestimo(ResultSet rs) throws SQLException {
+		Emprestimo emprestimo = new Emprestimo();
+
+		emprestimo.setId(rs.getLong("id"));
+		Aluno aluno = new AlunoDAO().getAlunoByID(rs.getLong("aluno"));
+		emprestimo.setAluno(aluno);
+		Livro livro = new LivroDAO().getLivroByID(rs.getLong("livro"));
+		emprestimo.setLivro(livro);
+
+		Calendar data = Calendar.getInstance();
+		data.setTime(rs.getDate("dataEmprestimo"));
+		emprestimo.setDataEmprestimo(data);
+
+		if (rs.getDate("dataDevolucao") != null) {
+			Calendar data2 = Calendar.getInstance();
+			data2.setTime(rs.getDate("dataDevolucao"));
+			emprestimo.setDataDevolucao(data2);
+		}
+
+		return emprestimo;
 	}
 
 	public boolean devolucao(Emprestimo emprestimo) {
@@ -191,17 +171,8 @@ public class EmprestimoDAO {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from emprestimos where id=?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
-			AlunoDAO alunoDAO = new AlunoDAO();
-			LivroDAO livroDAO = new LivroDAO();
 			while (rs.next()) {
-				emprestimo = new Emprestimo();
-				emprestimo.setId(rs.getLong("id"));
-				emprestimo.setAluno(alunoDAO.getAlunoByID(id));
-				emprestimo.setLivro(livroDAO.getLivroByID(id));
-
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataDevolucao"));
-				emprestimo.setDataEmprestimo(data);
+				emprestimo = montarEmprestimo(rs);
 			}
 			rs.close();
 			stmt.close();

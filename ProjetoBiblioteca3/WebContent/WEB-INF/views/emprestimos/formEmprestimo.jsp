@@ -7,25 +7,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-
 <style>
-form {
-	text-align: center;
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-h1 {
-	text-shadow: 0 0 0.5em #00FFFF;
-	text-align: center;
-	color: white;
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-h2 {
-	color: DeepPink;
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 1px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 290px;
+    align-items: center;
 }
 </style>
 <body>
 	<c:import url="../menu.jsp"></c:import>
 	<h1>Adicionar Emprestimo</h1>
+	<div>
 	<form action="/ProjetoBiblioteca3/emprestimos" method="post">
 		<h2>
 			Alunos <select name="aluno.id">
@@ -44,5 +63,6 @@ h2 {
 		</h2>
 		<button type="submit">Adicionar</button>
 	</form>
+	</div>
 </body>
 </html>

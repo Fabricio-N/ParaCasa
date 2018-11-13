@@ -3,43 +3,68 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-
 <style>
-label {
-	color: DeepPink;
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-form {
-	text-align: center;
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
-h1 {
-	text-shadow: 0 0 0.5em #00FFFF;
-	text-align: center;
-	color: white;
-	
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 1px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 290px;
+    align-items: center;
 }
 </style>
 <body>
-	<c:import url="../menu.jsp"></c:import>
-	<h1>Adicionar Aluno</h1>
-	<form action="/ProjetoBiblioteca3/alunos" method="post">
-	<div>
-		<label>
-			Nome: <input type="text" name="nome">
-		
-			Matricula: <input type="text" name="matricula">
-		
-			CPF: <input type="text" name="cpf">
-		
-			Endereço: <input type="text" name="endereco">
-		
-			Data de Nascimento: <input type="text" name="dataNascimento">
-			<button type="submit">Adicionar</button>
-		</label>
-	</div>	
-	</form>
+<c:import url="../menu.jsp"></c:import>
+
+<h3>Adicionar Aluno</h3>
+
+<div>
+  <form action="/ProjetoBiblioteca3/livros">
+    <label for="fname">Nome</label>
+    <input type="text" id="fname" name="nome" >
+
+    <label for="lname">Matricula</label>
+    <input type="text" id="lname" name="matricula" >
+    
+    <label for="lname">CPF</label>
+    <input type="text" id="lname" name="cpf" >
+    
+    <label for="lname">Endereço</label>
+    <input type="text" id="lname" name="endereco" >
+    
+    <label for="lname">Data de Nascimento</label>
+    <input type="text" id="lname" name="dataNascimento" >
+
+   
+  
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
 </body>
 </html>

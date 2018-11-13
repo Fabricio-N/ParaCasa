@@ -32,12 +32,12 @@ div {
 
 @-webkit-keyframes mymove {
     from {left: 0px;}
-    to {left: 800px;}
+    to {left: 550px;}
 }
 
 @keyframes mymove {
     from {left: 0px;}
-    to {left: 800px;}
+    to {left: 550px;}
 }
 
 </style>

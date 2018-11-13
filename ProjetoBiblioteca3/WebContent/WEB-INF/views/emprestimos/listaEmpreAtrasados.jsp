@@ -33,6 +33,7 @@ h1 {
 				<th>Aluno</th>
 				<th>Livro</th>
 				<th>Data de empréstimo</th>
+				<th>Data de Devolução</th>
 			</tr>
 
 		</thead>
@@ -43,6 +44,7 @@ h1 {
 					<td>${emprestimo.aluno.nome }</td>
 					<td>${emprestimo.livro.titulo }</td>
 					<td>${emprestimo.dataEmprestimo.time }</td>
+					<td>${emprestimo.dataDevoluvao.time }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
