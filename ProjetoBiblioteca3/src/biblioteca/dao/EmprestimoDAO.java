@@ -1,6 +1,7 @@
 package biblioteca.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -94,7 +95,8 @@ public class EmprestimoDAO {
 			List<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 			PreparedStatement stmt = connection
 					.prepareStatement("select * from emprestimos where dataDevolucao is null and dataEmprestimo < ?;");
-			stmt.setDate(1, x);
+			Calendar date = Calendar.getInstance();
+			stmt.setDate(1, new Date(date.getTimeInMillis() - 14 * 24 * 60 * 60 * 1000));
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

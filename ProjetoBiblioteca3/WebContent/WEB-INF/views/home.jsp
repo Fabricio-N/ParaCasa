@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<c:import url="menu.jsp"></c:import>
 </head>
 
 <style>
@@ -41,8 +42,9 @@ div {
 }
 
 </style>
+
 <body>
-	<c:import url="menu.jsp"></c:import>
+	
 	<h1>Biblioteca Fabricio e Emanuelly</h1>
 	<div id="div1">Bem Vindo</div>
 </body>

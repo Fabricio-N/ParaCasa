@@ -35,13 +35,18 @@ div {
     background-color: #f2f2f2;
     padding: 20px;
     width: 290px;
-    align-items: center;
+    margin: auto;
+}
+
+h1 {
+	text-align: center;
+	color: green;
 }
 </style>
 <body>
 <c:import url="../menu.jsp"></c:import>
 
-<h3>Adicionar Livro</h3>
+<h1>Adicionar Livro</h1>
 
 <div>
   <form action="/ProjetoBiblioteca3/livros">

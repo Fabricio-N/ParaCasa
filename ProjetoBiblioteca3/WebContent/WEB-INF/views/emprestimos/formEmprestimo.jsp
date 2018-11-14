@@ -20,8 +20,8 @@ input[type=text], select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #33cc33;
+    color: green;
     padding: 15px 10px;
     margin: 8px 0;
     border: none;
@@ -38,7 +38,12 @@ div {
     background-color: #f2f2f2;
     padding: 20px;
     width: 290px;
-    align-items: center;
+    margin: auto;
+}
+
+h1 {
+	text-align: center;
+	color: green;
 }
 </style>
 <body>

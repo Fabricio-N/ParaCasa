@@ -7,7 +7,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #009933;
 }
 
 body {
@@ -41,14 +41,14 @@ li.dropdown {
 .dropdown-content {
 	display: none;
 	position: absolute;
-	background-color: #f9f9f9;
+	background-color: #595959;
 	min-width: 140px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
 
 .dropdown-content a {
-	color: black;
+	
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
@@ -56,7 +56,7 @@ li.dropdown {
 }
 
 .dropdown-content a:hover {
-	background-color: #f1f1f1
+	background-color: #0099cc;
 }
 
 .dropdown:hover .dropdown-content {
@@ -69,7 +69,7 @@ li.dropdown {
 
 <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Home</a>
 		<div class="dropdown-content">
-			<a href="/ProjetoBiblioteca3/">Home</a> 
+			<a href="/ProjetoBiblioteca3/home">Home</a> 
 		</div></li>
 
 	
