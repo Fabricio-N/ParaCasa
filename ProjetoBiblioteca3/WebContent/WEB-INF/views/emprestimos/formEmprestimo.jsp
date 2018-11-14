@@ -43,8 +43,10 @@ div {
 
 h1 {
 	text-align: center;
-	color: green;
+	color: #ccffff;
+	
 }
+h1 {text-shadow: 0 0 0.2em #000000}
 </style>
 <body>
 	<c:import url="../menu.jsp"></c:import>

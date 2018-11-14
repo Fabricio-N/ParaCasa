@@ -41,9 +41,10 @@ div {
 
 h1 {
 	text-align: center;
-	color: green;
+	color: #ccffff;
 }
 
+h1 {text-shadow: 0 0 0.2em #000000}
 
 </style>
 <body>
@@ -52,14 +53,23 @@ h1 {
 	<h1>Adicionar Aluno</h1>
 
 	<div>
-		<form action="/ProjetoBiblioteca3/livros">
-			<label for="fname">Nome</label> <input type="text" id="fname"
-				name="nome"> <label for="lname">Matricula</label> <input
-				type="text" id="lname" name="matricula"> <label for="lname">CPF</label>
-			<input type="text" id="lname" name="cpf"> <label for="lname">Endereço</label>
-			<input type="text" id="lname" name="endereco"> <label
-				for="lname">Data de Nascimento</label> <input type="text" id="lname"
-				name="dataNascimento"> <input type="submit" value="Submit">
+		<form action="/ProjetoBiblioteca3/alunos" method="post">
+			<label for="fname">Nome</label> 
+			<input type="text" id="fname" name="nome"> 
+			
+			<label for="lname">Matricula</label>
+			<input type="text" id="lname" name="matricula"> 
+			 
+			<label for="lname">CPF</label>
+			<input type="text" id="lname" name="cpf">
+			
+			<label for="lname">Endereço</label>
+			<input type="text" id="lname" name="endereco">
+			
+			<label for="lname">Data de Nascimento</label> 
+			<input type="text" id="lname" name="dataNascimento"> 
+			
+			<input type="submit" value="Submit">
 		</form>
 	</div>
 

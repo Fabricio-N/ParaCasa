@@ -40,8 +40,10 @@ div {
 
 h1 {
 	text-align: center;
-	color: green;
+	color: #ccffff;
 }
+
+h1 {text-shadow: 0 0 0.2em #000000}
 </style>
 <body>
 <c:import url="../menu.jsp"></c:import>
@@ -49,7 +51,7 @@ h1 {
 <h1>Adicionar Livro</h1>
 
 <div>
-  <form action="/ProjetoBiblioteca3/livros">
+  <form action="/ProjetoBiblioteca3/livros" method="post">
     <label for="fname">Titulo</label>
     <input type="text" id="fname" name="titulo" >
 

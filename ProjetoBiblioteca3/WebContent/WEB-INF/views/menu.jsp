@@ -13,7 +13,7 @@ ul {
 body {
 	margin: 0px;
 	background-image:
-		url("http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Red%20Digital%20Layers.jpg?type=download");
+		url("https://blog.estantevirtual.com.br/wp-content/uploads/Biblioteca.jpg");
 	background-repeat: no-repeat;
 	background-size: 1600px 800px;
 }
@@ -48,7 +48,6 @@ li.dropdown {
 }
 
 .dropdown-content a {
-	
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
@@ -56,7 +55,7 @@ li.dropdown {
 }
 
 .dropdown-content a:hover {
-	background-color: #0099cc;
+	background-color:;
 }
 
 .dropdown:hover .dropdown-content {
@@ -67,31 +66,31 @@ li.dropdown {
 
 <ul>
 
-<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Home</a>
+	<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Home</a>
 		<div class="dropdown-content">
-			<a href="/ProjetoBiblioteca3/home">Home</a> 
-		</div></li>
-
-	
-
-	<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Aluno</a>
-		<div class="dropdown-content">
-			<a href="/ProjetoBiblioteca3/alunos/form">Adicionar alunos</a> <a
-				href="/ProjetoBiblioteca3/alunos/">Listar aluno</a>
+			<a href="/ProjetoBiblioteca3/">Home</a>
 		</div></li>
 
 
-	<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Livro</a>
+
+	<li class="dropdown"><a href="javascript:void(1)" class="dropbtn">Aluno</a>
+		<div class="dropdown-content">
+			<a href="/ProjetoBiblioteca3/alunos/form">Adicionar aluno</a> <a
+				href="/ProjetoBiblioteca3/alunos/">Listar alunos</a>
+		</div></li>
+
+
+	<li class="dropdown"><a href="javascript:void(2)" class="dropbtn">Livro</a>
 		<div class="dropdown-content">
 			<a href="/ProjetoBiblioteca3/livros/form">Adicionar livro</a> <a
 				href="/ProjetoBiblioteca3/livros">Listar livros</a>
 		</div></li>
 
-	<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Emprestimo</a>
+	<li class="dropdown"><a href="javascript:void(3)" class="dropbtn">Emprestimo</a>
 		<div class="dropdown-content">
 			<a href="/ProjetoBiblioteca3/emprestimos/form">Adicionar
 				emprestimo</a> <a href="/ProjetoBiblioteca3/emprestimos">Listar
-				Emprestimo</a> <a href="/ProjetoBiblioteca3/emprestimos/abertos">Emprestimos
+				Emprestimos</a> <a href="/ProjetoBiblioteca3/emprestimos/abertos">Emprestimos
 				Abertos</a> <a href="/ProjetoBiblioteca3/emprestimos/atrasados">Emprestimos
 				Atrasados</a>
 		</div></li>
