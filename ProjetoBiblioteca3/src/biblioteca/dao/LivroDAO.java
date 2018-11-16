@@ -10,7 +10,6 @@ import java.util.List;
 import biblioteca.dao.ConnectionFactory;
 import biblioteca.models.Livro;
 
-
 public class LivroDAO {
 	private Connection connec;
 
@@ -18,12 +17,11 @@ public class LivroDAO {
 		connec = ConnectionFactory.getConnection();
 	}
 
-
 	public boolean adicionar(Livro l) {
 
 		String query = "insert into livros (titulo, autor, editora, anoEdicao, anoPublicacao) values (?, ?, ?, ?, ?);";
 		try {
-			
+
 			PreparedStatement p = connec.prepareStatement(query);
 			p.setString(1, l.getTitulo());
 			p.setString(2, l.getAutor());
@@ -34,7 +32,6 @@ public class LivroDAO {
 			p.execute();
 			p.close();
 
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return true;
@@ -42,7 +39,6 @@ public class LivroDAO {
 		return false;
 	}
 
-	
 	public List<Livro> getLista() {
 		try {
 
@@ -70,7 +66,6 @@ public class LivroDAO {
 
 	}
 
-	
 	public void alterar(Livro l) {
 		String sql = "update livros set titulo=?, autor=?, editora=?, anoEdicao=?, anoPublicacao=? where id=?;";
 		try {
@@ -89,7 +84,6 @@ public class LivroDAO {
 		}
 	}
 
-	
 	public void remover(Livro l) {
 		try {
 			PreparedStatement stmt = connec.prepareStatement("delete from livros where id=?;");
@@ -102,7 +96,6 @@ public class LivroDAO {
 
 	}
 
-	
 	public Livro getLivroByID(Long id) {
 		try {
 
@@ -128,7 +121,7 @@ public class LivroDAO {
 
 		}
 	}
-	
+
 	public Livro getLivroByTitulo(String titulo) {
 		try {
 
@@ -152,6 +145,6 @@ public class LivroDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-	
+
 	}
 }

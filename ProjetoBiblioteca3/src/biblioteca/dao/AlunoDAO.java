@@ -4,11 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import biblioteca.dao.ConnectionFactory;
@@ -21,7 +20,7 @@ public class AlunoDAO {
 		connection = ConnectionFactory.getConnection();
 	}
 
-	public boolean inserir(Aluno aluno) { 
+	public boolean inserir(Aluno aluno) {
 
 		String sql = "insert into alunos (nome, matricula, cpf, endereco, dataNascimento) values (?, ?, ?, ?, ?);";
 

@@ -17,8 +17,10 @@ h1 {
 	color: white;
  }
 
-div {
-    width: 500px;
+#div1 {-webkit-animation-timing-function: Bem Vindo;}
+
+#div1 {
+	width: 500px;
     height: 50px;
     background-color: #20B2AA;
     font-weight: bold;
@@ -29,8 +31,6 @@ div {
    text-align: center;
    font-size: 50px;
 }
-#div1 {-webkit-animation-timing-function: Bem Vindo;}
-
 @-webkit-keyframes mymove {
     from {left: 0px;}
     to {left: 550px;}
