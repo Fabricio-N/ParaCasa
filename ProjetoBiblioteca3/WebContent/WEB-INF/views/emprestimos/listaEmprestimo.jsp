@@ -33,6 +33,7 @@ h1 {
 				<th>Nome do aluno</th>
 				<th>Nome do Livro</th>
 				<th>Data de empréstimo</th>
+				<th>Data de Devolução
 			</tr>
 		</thead>
 		<tbody>
@@ -41,6 +42,7 @@ h1 {
 					<td>${emprestimo.aluno.nome }</td>
 					<td>${emprestimo.livro.titulo }</td>
 					<td><fmt:formatDate value="${emprestimo.dataEmprestimo.time}" pattern="dd/MM/yyyy" /></td>
+					<td><fmt:formatDate value="${emprestimo.dataDevolucao.time}" pattern="dd/MM/yyyy" /></td>
 				</tr>
 			</c:forEach>
 
