@@ -1,5 +1,6 @@
 package biblioteca.controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -36,11 +37,15 @@ public class EmprestimosController {
 	}
 
 	@PostMapping("/emprestimos")
-	public String adicionar(Emprestimo emprestimo) {
+	public String adicionar(Emprestimo emprestimo) throws SQLException {
 		System.out.println("Chamou o método de adicionar");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		emprestimoDAO.inserir(emprestimo);
-
+		
+		if(emprestimoDAO.qtdEmprestimos(emprestimo)){
+			emprestimoDAO.inserir(emprestimo);
+		}else {
+			return "emprestimos/relatorioAluno";
+		}
 		return "redirect:/emprestimos";
 	}
 

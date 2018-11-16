@@ -45,12 +45,12 @@ public class EmprestimoDAO {
 		return false;
 	}
 
-	public boolean qtdEmprestimos(Aluno aluno) throws SQLException {
+	public boolean qtdEmprestimos(Emprestimo emprestimo) throws SQLException {
 
 		try {
 			PreparedStatement stmt = connection
 					.prepareStatement("select * from emprestimos where aluno = ? and dataDevolucao IS NULL;");
-			stmt.setLong(1, aluno.getId());
+			stmt.setLong(1, emprestimo.getAluno().getId());
 			ResultSet rs = stmt.executeQuery();
 			int cont = 0;
 			while (rs.next()) {
@@ -68,6 +68,8 @@ public class EmprestimoDAO {
 		return true;
 
 	}
+	
+	
 
 	public List<Emprestimo> getListaAbertos() {
 		try {
