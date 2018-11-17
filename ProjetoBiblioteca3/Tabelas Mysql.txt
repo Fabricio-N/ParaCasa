@@ -1,37 +1,37 @@
-criar banco de dados biblioteca_ef;
+create database biblioteca_ef;
 
 use biblioteca_ef;
 
-criar table alunos (
+create table alunos (
 id BIGINT NOT NULL AUTO_INCREMENT,
-nome VARCHAR (255),
-matricula VARCHAR (255),
-cpf VARCHAR (255),
-endereco VARCHAR (255),
+nome VARCHAR(255),
+matricula VARCHAR(255),
+cpf VARCHAR(255),
+endereco VARCHAR(255),
 dataNascimento DATE,
-chave primária (id)
+primary key (id)
 );
 
 
-criar livros de tabelas (
+create table livros (
 id BIGINT NOT NULL AUTO_INCREMENT,
-titulo VARCHAR (255),
-autor VARCHAR (255),
-editora VARCHAR (255),
-anoEdicao VARCHAR (255),
+titulo VARCHAR(255),
+autor VARCHAR(255),
+editora VARCHAR(255),
+anoEdicao VARCHAR(255),
 anoPublicacao int,
-chave primária (id)
+primary key (id)
 );
 
 
 
-criar tabela emprestimos (
+create table emprestimos (
 id BIGINT NOT NULL AUTO_INCREMENT,
 aluno bigint,
 livro bigint,
 dataEmprestimo DATE,
 dataDevolucao DATE,
-chave primária (id),
-chave estrangeira (aluno) faz referência a alunos (id),
-referências de chave estrangeira (livro) livros (id)
+primary key (id),
+foreign key (aluno) references alunos(id),
+foreign key (livro) references livros(id)
 );

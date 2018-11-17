@@ -68,8 +68,6 @@ public class EmprestimoDAO {
 		return true;
 
 	}
-	
-	
 
 	public List<Emprestimo> getListaAbertos() {
 		try {
@@ -186,7 +184,7 @@ public class EmprestimoDAO {
 
 		}
 	}
-	
+
 	public boolean qtdLivros(Emprestimo emprestimo) {
 		String sql = "select * from emprestimos where livro = ? and dataDevolucao IS NULL;";
 		int LivEmpre = 0;
@@ -196,12 +194,10 @@ public class EmprestimoDAO {
 			stmt.setLong(1, emprestimo.getLivro().getId());
 			ResultSet rs = stmt.executeQuery();
 
-			// Conta o numero de vezes que o livro foi emprestado
 			while (rs.next()) {
 				LivEmpre++;
 			}
 
-			// Verifica se o livro foi emprestado
 			if (LivEmpre >= 1) {
 				return false;
 			}

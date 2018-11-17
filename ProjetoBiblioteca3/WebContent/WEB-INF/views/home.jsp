@@ -22,7 +22,7 @@ h1 {
 #div1 {
 	width: 500px;
     height: 50px;
-    background-color: #20B2AA;
+    background-color: green;
     font-weight: bold;
     position: relative;
     -webkit-animation: mymove 8s infinite;
