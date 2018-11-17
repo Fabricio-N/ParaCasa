@@ -40,13 +40,21 @@ public class EmprestimosController {
 	public String adicionar(Emprestimo emprestimo) throws SQLException {
 		System.out.println("Chamou o método de adicionar");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-		
-		if(emprestimoDAO.qtdEmprestimos(emprestimo)){
-			emprestimoDAO.inserir(emprestimo);
-		}else {
+
+		if (emprestimoDAO.qtdEmprestimos(emprestimo)) {
+			if (emprestimoDAO.qtdLivros(emprestimo)) {
+				emprestimoDAO.inserir(emprestimo);
+				return "redirect:/emprestimos";
+
+			} else {
+				return "emprestimos/relatorioLivro";
+
+			}
+
+		} else {
 			return "emprestimos/relatorioAluno";
 		}
-		return "redirect:/emprestimos";
+
 	}
 
 	@GetMapping("/emprestimos")
@@ -78,14 +86,14 @@ public class EmprestimosController {
 		model.addObject("emprestimos", lista);
 		return model;
 	}
-		@RequestMapping("/emprestimos/devolucao")
-		public String devolucao(Emprestimo emprestimo) {
-			System.out.println("Chamou o método devolução");
-			EmprestimoDAO emprestimoDao = new EmprestimoDAO();
-			System.out.println(emprestimo);
-			emprestimoDao.devolucao(emprestimo);
-			return "redirect:../emprestimos/abertos";
 
-		}
+	@RequestMapping("/emprestimos/devolucao")
+	public String devolucao(Emprestimo emprestimo) {
+		System.out.println("Chamou o método devolução");
+		EmprestimoDAO emprestimoDao = new EmprestimoDAO();
+		System.out.println(emprestimo);
+		emprestimoDao.devolucao(emprestimo);
+		return "redirect:../emprestimos/abertos";
+
+	}
 }
-

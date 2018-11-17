@@ -9,13 +9,13 @@
 </head>
 
 <style>
-	h1{
+	h1 {
 		color: white;
 		text-align: center;
 	}
 </style>
 <body>
 	<c:import url="../menu.jsp"></c:import>
-	<h1>O aluno ${param.aluno.nome } atingiu o limite de livros emprestados!</h1>
+	<h1>O livro está indisponivel!</h1>
 </body>
 </html>
