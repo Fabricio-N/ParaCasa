@@ -45,7 +45,7 @@ h1 {
 
 <body>
 	
-	<h1>Biblioteca Fabricio e Emanuelly</h1>
+	<h1>Biblioteca Fabricio</h1>
 	<div id="div1">Bem Vindo</div>
 </body>
 </html>

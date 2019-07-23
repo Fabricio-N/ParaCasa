@@ -1,6 +1,6 @@
-create database biblioteca_ef;
+create database biblioteca_f;
 
-use biblioteca_ef;
+use biblioteca_f;
 
 create table alunos (
 id BIGINT NOT NULL AUTO_INCREMENT,
